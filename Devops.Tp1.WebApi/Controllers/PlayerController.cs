@@ -1,4 +1,5 @@
 ﻿using Devops.Tp1.Domain.DTOs;
+using Devops.Tp1.Domain.Entities;
 using Devops.Tp1.Service.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -33,7 +34,7 @@ namespace Devops.Tp1.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePlayer([FromBody] PlayerDto newPlayer)
+        public IActionResult CreatePlayer([FromBody] Player newPlayer)
         {
             try
             {

@@ -14,7 +14,8 @@
       "launchBrowser": true,
       "launchUrl": "api/players",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "LISTPLAYERS": "{'Results' : [{'name': 'German','lastName': 'Obregon','birthday': 27111989},{'name': 'Sebastian','lastName': 'Galvan','birthday': 23061996}]}"
       }
     },
     "Devops.Tp1.WebApi": {
@@ -24,7 +25,9 @@
       "launchUrl": "api/players",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "LISTPLAYERS": "{'Results' : [{'name': 'German','lastName': 'Obregon','birthday': 27111989},{'name': 'Sebastian','lastName': 'Galvan','birthday': 23061996}]}"
+
       }
     }
   }

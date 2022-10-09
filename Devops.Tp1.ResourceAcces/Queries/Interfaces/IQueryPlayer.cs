@@ -10,6 +10,6 @@ namespace Devops.Tp1.ResourceAcces.Queries.Interfaces
     public interface IQueryPlayer
     {
         List<PlayerDto> GetPlayers();
-        void CreatePlayer(PlayerDto player);
+      
     }
 }

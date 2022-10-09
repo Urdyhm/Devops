@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace Devops.Tp1.Domain.DTOs
 {
-    public class PlayerDto
+    public class PlayersDto
     {
-
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public string Birthday { get; set; }
+        public ICollection<Player> Results { get; set; }
     }
 }

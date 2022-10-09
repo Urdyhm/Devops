@@ -1,5 +1,7 @@
 using Devops.Tp1.Logic;
 using Devops.Tp1.Logic.Interfaces;
+using Devops.Tp1.ResourceAcces.Commands;
+using Devops.Tp1.ResourceAcces.Commands.Interfaces;
 using Devops.Tp1.ResourceAcces.Queries;
 using Devops.Tp1.ResourceAcces.Queries.Interfaces;
 using Devops.Tp1.Service;
@@ -36,6 +38,7 @@ namespace Devops.Tp1.WebApi
             services.AddTransient<IPlayerService, PlayerService>();
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<IQueryPlayer, QueryPlayer>();
+            services.AddTransient<ICommandPlayer, CommandPlayer>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

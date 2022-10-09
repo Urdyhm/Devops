@@ -10,6 +10,6 @@ namespace Devops.Tp1.Domain.Entities
     {
         public string Name { get; set; }
         public string LastName { get; set; }
-        public DateTime Birthday { get; set; }
+        public int Birthday { get; set; }
     }
 }
