@@ -34,6 +34,7 @@ namespace Devops.Tp1.WebApi.Controllers
         }
 
         [HttpPost]
+       
         public IActionResult CreatePlayer([FromBody] Player newPlayer)
         {
             try

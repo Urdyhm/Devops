@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/players",
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "LISTPLAYERS": "{'Results' : [{'name': 'German','lastName': 'Obregon','birthday': 27111989},{'name': 'Sebastian','lastName': 'Galvan','birthday': 23061996}]}"
