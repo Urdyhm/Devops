@@ -34,7 +34,11 @@ namespace Devops.Tp1.WebApi.Controllers
         }
 
         [HttpPost]
-       
+        /// <summary>
+        /// Agregar Player.
+        /// </summary>
+        /// <param name="newPlayer">El formato de Birthday debe ser ddMMyyyy sin caracteres especiales</param>
+        /// <returns></returns>
         public IActionResult CreatePlayer([FromBody] Player newPlayer)
         {
             try
