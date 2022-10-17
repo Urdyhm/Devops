@@ -14,6 +14,7 @@ namespace Devops.Tp1.Logic.Interfaces
         PlayerDto CreatePlayer(Player player);
         void DeletePlayer(int id);
         PlayerDto UpdatePlayer(Player player);
+       
 
     }
 }

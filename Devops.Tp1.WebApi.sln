@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.ResourceAcces", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.Logic", "Devops.Tp1.Logic\Devops.Tp1.Logic.csproj", "{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.Test", "Devops.Tp1.Test\Devops.Tp1.Test.csproj", "{C4BD0BFB-F76A-40EA-893A-1555BFAFD6AD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4BD0BFB-F76A-40EA-893A-1555BFAFD6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4BD0BFB-F76A-40EA-893A-1555BFAFD6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4BD0BFB-F76A-40EA-893A-1555BFAFD6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4BD0BFB-F76A-40EA-893A-1555BFAFD6AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

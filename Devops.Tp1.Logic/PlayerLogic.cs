@@ -25,16 +25,8 @@ namespace Devops.Tp1.Logic
         public PlayerDto CreatePlayer(Player player)
         {
             this._repository.Add<Player>(player);
-
-            PlayerDto response = new PlayerDto()
-            {
-                PlayerId = player.PlayerId,
-                Name = player.Name,
-                LastName = player.LastName,
-                Birthday = DateTransform(player.Birthday).ToString("dd/MM/yyyy")
-            };
-
-            return response;
+       
+            return TransformPlayerToDto(player);
         }
 
         public List<PlayerDto> GetPlayers()
@@ -43,27 +35,27 @@ namespace Devops.Tp1.Logic
             List<PlayerDto> listPlayers = new List<PlayerDto>();
             foreach (var player in players)
             {
-                DateTime birhtday = DateTransform(player.Birthday);
-                
-                PlayerDto playerDto = new PlayerDto()
-                {
-                    PlayerId = player.PlayerId,
-                    Name = player.Name,
-                    LastName = player.LastName,
-                    Birthday = birhtday.ToString("dd/MM/yyyy")
-                };
+
+                PlayerDto playerDto = TransformPlayerToDto(player);
 
                 listPlayers.Add(playerDto);
             }
             return listPlayers;
         }
 
-        public DateTime DateTransform(int date)
+        public static PlayerDto TransformPlayerToDto(Player player)
         {
             DateTime birhtday;
-            DateTime.TryParseExact(date.ToString(), "ddMMyyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birhtday);
+            DateTime.TryParseExact(player.Birthday.ToString(), "ddMMyyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birhtday);
+            PlayerDto response = new PlayerDto()
+            {
+                PlayerId = player.PlayerId,
+                Name = player.Name,
+                LastName = player.LastName,
+                Birthday = birhtday.ToString("dd/MM/yyyy")
+            };
 
-            return birhtday;
+            return response;
         }
 
         public void DeletePlayer(int id)
@@ -74,12 +66,7 @@ namespace Devops.Tp1.Logic
         public PlayerDto UpdatePlayer(Player player)
         {
             this._repository.Update<Player>(player);
-            PlayerDto response = new PlayerDto()
-            {
-                Name = player.Name,
-                LastName = player.LastName,
-                Birthday = DateTransform(player.Birthday).ToString("dd/MM/yyyy")
-            };
+            PlayerDto response = TransformPlayerToDto(player);
 
             return response;
         }
