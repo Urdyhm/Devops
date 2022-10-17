@@ -5,6 +5,7 @@ using Devops.Tp1.ResourceAcces.Commands.Interfaces;
 using Devops.Tp1.ResourceAcces.Queries.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,21 +15,73 @@ namespace Devops.Tp1.Logic
     public class PlayerLogic : IPlayerLogic
     {
         private readonly IQueryPlayer _queryPlayer;
-        private readonly ICommandPlayer _commandPlayer;
-        public PlayerLogic(IQueryPlayer queryPlayer , ICommandPlayer commandPlayer)
+        private readonly IGenericRepository _repository;
+        public PlayerLogic(IQueryPlayer queryPlayer , IGenericRepository repository)
         {
             this._queryPlayer = queryPlayer;
-            this._commandPlayer = commandPlayer;
+            this._repository = repository;
         }
 
-        public void CreatePlayer(Player player)
+        public PlayerDto CreatePlayer(Player player)
         {
-            this._commandPlayer.CreatePlayer(player);
+            this._repository.Add<Player>(player);
+
+            PlayerDto response = new PlayerDto()
+            {
+                PlayerId = player.PlayerId,
+                Name = player.Name,
+                LastName = player.LastName,
+                Birthday = DateTransform(player.Birthday).ToString("dd/MM/yyyy")
+            };
+
+            return response;
         }
 
         public List<PlayerDto> GetPlayers()
         {
-            return _queryPlayer.GetPlayers();
+            var players = _queryPlayer.GetPlayers();
+            List<PlayerDto> listPlayers = new List<PlayerDto>();
+            foreach (var player in players)
+            {
+                DateTime birhtday = DateTransform(player.Birthday);
+                
+                PlayerDto playerDto = new PlayerDto()
+                {
+                    PlayerId = player.PlayerId,
+                    Name = player.Name,
+                    LastName = player.LastName,
+                    Birthday = birhtday.ToString("dd/MM/yyyy")
+                };
+
+                listPlayers.Add(playerDto);
+            }
+            return listPlayers;
+        }
+
+        public DateTime DateTransform(int date)
+        {
+            DateTime birhtday;
+            DateTime.TryParseExact(date.ToString(), "ddMMyyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birhtday);
+
+            return birhtday;
+        }
+
+        public void DeletePlayer(int id)
+        {
+            this._repository.Delete<Player>(id);
+        }
+
+        public PlayerDto UpdatePlayer(Player player)
+        {
+            this._repository.Update<Player>(player);
+            PlayerDto response = new PlayerDto()
+            {
+                Name = player.Name,
+                LastName = player.LastName,
+                Birthday = DateTransform(player.Birthday).ToString("dd/MM/yyyy")
+            };
+
+            return response;
         }
     }
 }

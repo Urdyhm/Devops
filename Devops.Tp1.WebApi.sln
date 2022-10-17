@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.WebApi", "Devops.Tp1.WebApi\Devops.Tp1.WebApi.csproj", "{B040C98F-1C65-4BDA-ABF4-39077B004F30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.WebApi", "Devops.Tp1.WebApi\Devops.Tp1.WebApi.csproj", "{B040C98F-1C65-4BDA-ABF4-39077B004F30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.Service", "Devops.Tp1.Service\Devops.Tp1.Service.csproj", "{16764621-1AE5-4D57-AC12-2592DE0DDF34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.Service", "Devops.Tp1.Service\Devops.Tp1.Service.csproj", "{16764621-1AE5-4D57-AC12-2592DE0DDF34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.Domain", "Devops.Tp1.Domain\Devops.Tp1.Domain.csproj", "{969EEA6E-D3EC-4DFC-A8C3-BA57305562C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.Domain", "Devops.Tp1.Domain\Devops.Tp1.Domain.csproj", "{969EEA6E-D3EC-4DFC-A8C3-BA57305562C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.ResourceAcces", "Devops.Tp1.ResourceAcces\Devops.Tp1.ResourceAcces.csproj", "{CB9CD61B-487C-4BD9-BF73-BE492B122D4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.ResourceAcces", "Devops.Tp1.ResourceAcces\Devops.Tp1.ResourceAcces.csproj", "{CB9CD61B-487C-4BD9-BF73-BE492B122D4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devops.Tp1.Logic", "Devops.Tp1.Logic\Devops.Tp1.Logic.csproj", "{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devops.Tp1.Logic", "Devops.Tp1.Logic\Devops.Tp1.Logic.csproj", "{4DD91EC7-5B1F-47D1-912D-CC1A1562873F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

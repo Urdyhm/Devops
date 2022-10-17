@@ -34,17 +34,12 @@ namespace Devops.Tp1.WebApi.Controllers
         }
 
         [HttpPost]
-        /// <summary>
-        /// Agregar Player.
-        /// </summary>
-        /// <param name="newPlayer">El formato de Birthday debe ser ddMMyyyy sin caracteres especiales</param>
-        /// <returns></returns>
         public IActionResult CreatePlayer([FromBody] Player newPlayer)
         {
             try
             {
-                this._playerService.CreatePlayer(newPlayer);
-                return new JsonResult(newPlayer) { StatusCode = 201 };
+                PlayerDto player = this._playerService.CreatePlayer(newPlayer);
+                return new JsonResult(player) { StatusCode = 201 };
             }
             catch (Exception ex)
             {
@@ -53,6 +48,36 @@ namespace Devops.Tp1.WebApi.Controllers
             }
             
 
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult DeletePlayer(int id)
+        {
+            try
+            {
+                this._playerService.DeletePlayer(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound(new { error = ex.Message});
+            }
+        }
+
+        [HttpPut]
+        public IActionResult UpdatePlayer([FromBody] Player player)
+        {
+            try
+            {
+                PlayerDto playerDto = this._playerService.UpdatePlayer(player);
+                return new JsonResult(playerDto) { StatusCode = 200 };
+            }
+            catch (Exception ex)
+            {
+
+                return NotFound(new { error = ex.Message });
+            }
         }
     }
 }

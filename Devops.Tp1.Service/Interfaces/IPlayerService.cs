@@ -11,6 +11,9 @@ namespace Devops.Tp1.Service.Interfaces
     public interface IPlayerService
     {
         List<PlayerDto> GetPlayers();
-        void CreatePlayer(Player player);
+        PlayerDto CreatePlayer(Player player);
+        void DeletePlayer(int id);
+        PlayerDto UpdatePlayer(Player player);
+        
     }
 }

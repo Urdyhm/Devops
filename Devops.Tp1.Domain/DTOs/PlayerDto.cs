@@ -9,7 +9,7 @@ namespace Devops.Tp1.Domain.DTOs
 {
     public class PlayerDto
     {
-
+        public int? PlayerId { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Birthday { get; set; }

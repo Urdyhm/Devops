@@ -11,7 +11,9 @@ namespace Devops.Tp1.Logic.Interfaces
     public interface IPlayerLogic
     {
         public List<PlayerDto> GetPlayers();
-        void CreatePlayer(Player player);
-       
+        PlayerDto CreatePlayer(Player player);
+        void DeletePlayer(int id);
+        PlayerDto UpdatePlayer(Player player);
+
     }
 }

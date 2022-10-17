@@ -1,3 +1,4 @@
+using Devops.Tp1.Domain;
 using Devops.Tp1.Logic;
 using Devops.Tp1.Logic.Interfaces;
 using Devops.Tp1.ResourceAcces.Commands;
@@ -19,6 +20,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Devops.Tp1.WebApi
 {
@@ -34,16 +38,27 @@ namespace Devops.Tp1.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
+
+            //SQL Connection & DBCOntext 
+            var ConnectionString = Configuration.GetSection("ConnectionString").Value;
+            services.AddDbContext<GameContext>(opt => opt.UseSqlServer(ConnectionString));
+
+            //Injection Container 
             services.AddTransient<IPlayerService, PlayerService>();
             services.AddTransient<IPlayerLogic, PlayerLogic>();
             services.AddTransient<IQueryPlayer, QueryPlayer>();
-            services.AddTransient<ICommandPlayer, CommandPlayer>();
+            services.AddTransient<IGenericRepository, GenericRepository>();
 
+            //Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Tp1-API", Version = "v1", Description = "Grupo 6" });
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin", policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
 
         }
@@ -56,9 +71,15 @@ namespace Devops.Tp1.WebApi
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api_Restful v1"));
+                
             }
-
-            app.UseHttpsRedirection();
+            if (env.IsProduction())
+            {
+                PrepGameDb.PrePoluation(app);
+               
+            }
+           
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

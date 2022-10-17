@@ -5,8 +5,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Devops.Tp1.Domain\Devops.Tp1.Domain.csproj" />
     <ProjectReference Include="..\Devops.Tp1.Logic\Devops.Tp1.Logic.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Messeges.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messeges.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Messeges.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messeges.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
