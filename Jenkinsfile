@@ -3,6 +3,9 @@ pipeline {
 
   stages {
         stage('Checkout') {
+            node {
+                     checkout scm
+                }
             steps {
                 echo 'Checking..'
             }
